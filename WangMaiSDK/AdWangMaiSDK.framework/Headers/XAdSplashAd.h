@@ -1,0 +1,55 @@
+//
+//  XAdSplashAd.h
+//  WangMaiAdSDK
+//
+//  Created by 周泽浩 on 2023/2/13.
+//
+
+#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
+
+NS_ASSUME_NONNULL_BEGIN
+
+@protocol XAdSplashDelegate;
+
+@interface XAdSplashAd : NSObject
+
+/// 开屏协议
+@property (nonatomic,weak) id<XAdSplashDelegate>delegate;
+
+/// 应用的window窗口 [必传]
+@property (nonatomic, weak) UIWindow *window;
+
+/// 是否需要满足HTTPS  [可选] 默认为NO
+@property (nonatomic, assign) BOOL secure;
+ 
+/// 底部自定义窗口  [可选]
+@property (nonatomic, weak) UIView *bottomView;
+
+/// caid以及caid版本号信息  [可选]
+/// 数组内部未字典对象,Key为caid和caidVer,对应的值均为字符串类型,示例:@{@"caid":@"",@"caidVer":@""}
+@property (nonatomic, strong) NSArray *caidInfo;
+
+/// 构造方法
+/// - Parameter adSlotId: 广告位id
+- (instancetype)initWithAdSlotId:(NSString *)adSlotId;
+
+/// 加载广告并展示
+- (void)loadAdData;
+
+/// 预加载广告,只加载不展示,需要调用showAd展示广告
+- (void)preloadAdData;
+
+/// 展示广告
+- (void)showAd;
+
+/**
+ 返回广告的eCPM，单位：分
+ 
+ @return 成功返回一个大于等于0的值，-1表示无权限或后台出现异常
+ */
+- (NSInteger)eCPM;
+
+@end
+
+NS_ASSUME_NONNULL_END
