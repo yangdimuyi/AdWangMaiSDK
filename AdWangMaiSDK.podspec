@@ -46,7 +46,7 @@ Pod::Spec.new do |spec|
      ss.vendored_libraries = 'AdNetworks/JDYunAdapter/*.a'
      ss.vendored_frameworks = 'AdNetworks/JDYunAdapter/*.framework'
      ss.source_files = 'AdNetworks/JDYunAdapter/Headers/*.h'
-     ss.dependency 'AdWangMaiSDK'
+     ss.dependency 'AdWangMaiSDK/AdSDk'
   end
   
   # This description is used to generate tags and improve search results.
