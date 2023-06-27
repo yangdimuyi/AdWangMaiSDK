@@ -30,12 +30,16 @@ Pod::Spec.new do |spec|
   spec.user_target_xcconfig = { 'OTHER_LDFLAGS' => ['-ObjC'], 'ENABLE_BITCODE' => 'NO', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
   spec.pod_target_xcconfig = { 'OTHER_LDFLAGS' => ['-ObjC'], 'ENABLE_BITCODE' => 'NO', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
   spec.source       = { :git => "https://github.com/yangdimuyi/AdWangMaiSDK-iOS.git", :tag => "#{spec.version}" }
-  spec.resource  = "WangMaiSDK/adwangmai_sdk.bundle"
-  spec.ios.vendored_frameworks = 'WangMaiSDK/AdWangMaiSDK.framework'
-  spec.frameworks = 'AssetsLibrary','AdSupport','Audiotoolbox','AddressBook','AVKit','AVFoundation','Accelerate','CoreServices','CoreImage','CoreLocation','CoreTelephony','CoreText','CoreMotion','CoreGraphics','CoreMedia','CoreData','DeviceCheck','Foundation','ImageIO','JavaScriptCore','MobileCoreServices','MapKit','MessageUI','MediaPlayer','Photos','QuartzCore','QuickLook','SystemConfiguration','Security','StoreKit','SafariServices','UIKit','WebKit'
-  spec.libraries = "z","resolv.9","xml2","c++","c++abi","z.1.2.5","sqlite3.0","sqlite3","bz2.1.0","bz2","iconv"
-  spec.weak_framework = 'AppTrackingTransparency'
   spec.requires_arc = true
+  spec.default_subspec = 'AdSDk'
+  
+  spec.subspec 'AdSDk' do |ss|
+    ss.resource  = "WangMaiSDK/adwangmai_sdk.bundle"
+    ss.ios.vendored_frameworks = 'WangMaiSDK/AdWangMaiSDK.framework'
+    ss.frameworks = 'AssetsLibrary','AdSupport','Audiotoolbox','AddressBook','AVKit','AVFoundation','Accelerate','CoreServices','CoreImage','CoreLocation','CoreTelephony','CoreText','CoreMotion','CoreGraphics','CoreMedia','CoreData','DeviceCheck','Foundation','ImageIO','JavaScriptCore','MobileCoreServices','MapKit','MessageUI','MediaPlayer','Photos','QuartzCore','QuickLook','SystemConfiguration','Security','StoreKit','SafariServices','UIKit','WebKit'
+    ss.libraries = "z","resolv.9","xml2","c++","c++abi","z.1.2.5","sqlite3.0","sqlite3","bz2.1.0","bz2","iconv"
+    ss.weak_framework = 'AppTrackingTransparency'
+  end
   
   spec.subspec 'JDYunAdapter' do |ss|
      ss.platform     = :ios, '11.0'
