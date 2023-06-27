@@ -40,14 +40,6 @@ Pod::Spec.new do |spec|
     ss.libraries = "z","resolv.9","xml2","c++","c++abi","z.1.2.5","sqlite3.0","sqlite3","bz2.1.0","bz2","iconv"
   end
   
-  spec.subspec 'JDYunAdapter' do |ss|
-     ss.platform     = :ios, '11.0'
-     ss.dependency 'AdWangMaiSDK/AdSDk'
-     ss.ios.vendored_frameworks = 'AdNetworks/JDYunAdapter/*.framework'
-     ss.vendored_libraries = 'AdNetworks/JDYunAdapter/*.a'
-     ss.source_files = 'AdNetworks/JDYunAdapter/Headers/*.h'
-  end
-  
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
   #   * Try to keep it short, snappy and to the point.
