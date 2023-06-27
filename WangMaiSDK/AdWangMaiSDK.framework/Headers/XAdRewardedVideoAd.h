@@ -42,6 +42,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (NSInteger)eCPM;
 
+/// 竞胜之后调用, 需要在广告请求成功之后,展示之前调用
+/// @param winInfo 竞胜信息 字典类型
+- (void)sendWinNotificationWithInfo:(NSDictionary *_Nullable)winInfo;
+
 @end
 
 NS_ASSUME_NONNULL_END

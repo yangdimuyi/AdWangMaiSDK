@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "AdWangMaiSDK"
-  spec.version      = "5.4.2"
+  spec.version      = "5.4.3"
   spec.summary      = "AdWangMaiSDK is a SDK from WangMai providing AD service."
   spec.description  = <<-DESC
     AdWangMaiSDK is a SDK from WangMai providing AD service.
@@ -32,9 +32,18 @@ Pod::Spec.new do |spec|
   spec.source       = { :git => "https://github.com/yangdimuyi/AdWangMaiSDK-iOS.git", :tag => "#{spec.version}" }
   spec.resource  = "WangMaiSDK/adwangmai_sdk.bundle"
   spec.ios.vendored_frameworks = 'WangMaiSDK/AdWangMaiSDK.framework'
-  spec.frameworks = 'AppTrackingTransparency','AssetsLibrary','AdSupport','Audiotoolbox','AddressBook','AVKit','AVFoundation','Accelerate','CoreServices','CoreImage','CoreLocation','CoreTelephony','CoreText','CoreMotion','CoreGraphics','CoreMedia','CoreData','DeviceCheck','Foundation','ImageIO','JavaScriptCore','MobileCoreServices','MapKit','MessageUI','MediaPlayer','Photos','QuartzCore','QuickLook','SystemConfiguration','Security','StoreKit','SafariServices','UIKit','WebKit'
+  spec.frameworks = 'AssetsLibrary','AdSupport','Audiotoolbox','AddressBook','AVKit','AVFoundation','Accelerate','CoreServices','CoreImage','CoreLocation','CoreTelephony','CoreText','CoreMotion','CoreGraphics','CoreMedia','CoreData','DeviceCheck','Foundation','ImageIO','JavaScriptCore','MobileCoreServices','MapKit','MessageUI','MediaPlayer','Photos','QuartzCore','QuickLook','SystemConfiguration','Security','StoreKit','SafariServices','UIKit','WebKit'
   spec.libraries = "z","resolv.9","xml2","c++","c++abi","z.1.2.5","sqlite3.0","sqlite3","bz2.1.0","bz2","iconv"
+  spec.weak_framework = 'AppTrackingTransparency'
   spec.requires_arc = true
+  
+  spec.subspec 'JDYunAdapter' do |ss|
+     ss.platform     = :ios, '11.0'
+     ss.vendored_libraries = 'AdNetworks/JDYunAdapter/*.a'
+     ss.vendored_frameworks = 'AdNetworks/JDYunAdapter/*.framework'
+     ss.source_files = 'AdNetworks/JDYunAdapter/Headers/*.h'
+     ss.dependency 'AdWangMaiSDK'
+  end
   
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?

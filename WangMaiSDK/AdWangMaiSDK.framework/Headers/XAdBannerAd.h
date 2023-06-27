@@ -63,6 +63,11 @@ NS_ASSUME_NONNULL_BEGIN
  @return 成功返回一个大于等于0的值，-1表示无权限或后台出现异常
  */
 - (NSInteger)eCPM;
+
+/// 竞胜之后调用, 需要在广告请求成功之后,展示之前调用
+/// @param winInfo 竞胜信息 字典类型
+- (void)sendWinNotificationWithInfo:(NSDictionary *_Nullable)winInfo;
+
 @end
 
 NS_ASSUME_NONNULL_END
