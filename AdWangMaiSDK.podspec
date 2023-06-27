@@ -42,10 +42,11 @@ Pod::Spec.new do |spec|
   
   spec.subspec 'JDYunAdapter' do |ss|
      ss.platform     = :ios, '11.0'
-     ss.vendored_libraries = 'AdNetworks/JDYunAdapter/*.a'
-     ss.vendored_frameworks = 'AdNetworks/JDYunAdapter/*.framework'
-     ss.source_files = 'AdNetworks/JDYunAdapter/Headers/*.h'
      ss.dependency 'AdWangMaiSDK/AdSDk'
+     ss.vendored_libraries = 'AdNetworks/JDYunAdapter/*.a'
+     ss.ios.vendored_frameworks = 'AdNetworks/JDYunAdapter/*.framework'
+     ss.source_files = 'AdNetworks/JDYunAdapter/Headers/*.h'
+     
   end
   
   # This description is used to generate tags and improve search results.
