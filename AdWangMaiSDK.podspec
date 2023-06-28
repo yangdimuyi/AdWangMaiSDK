@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "AdWangMaiSDK"
-  spec.version      = "5.4.3"
+  spec.version      = "5.5.0"
   spec.summary      = "AdWangMaiSDK is a SDK from WangMai providing AD service."
   spec.description  = <<-DESC
     AdWangMaiSDK is a SDK from WangMai providing AD service.
@@ -44,7 +44,7 @@ Pod::Spec.new do |spec|
      ss.platform     = :ios, '11.0'
      ss.vendored_libraries = 'WangMaiSDK/JDYunAdapter/*.a'
      ss.dependency 'AdWangMaiSDK/AdSDk'
-     ss.dependency 'JADYun', '2.2.4'
+     ss.dependency 'JADYun', '2.3.0'
   end
   
   # This description is used to generate tags and improve search results.
