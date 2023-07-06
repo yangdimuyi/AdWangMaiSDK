@@ -44,7 +44,7 @@ Pod::Spec.new do |spec|
      ss.platform     = :ios, '11.0'
      ss.vendored_libraries = 'WangMaiSDK/JDYunAdapter/*.a'
      ss.dependency 'AdWangMaiSDK/AdSDk'
-     ss.dependency 'JADYun', '2.3.0'
+     ss.dependency 'JADYun', '~> 2.3.0'
   end
   
   # This description is used to generate tags and improve search results.
