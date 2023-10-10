@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "AdWangMaiSDK"
-  spec.version      = "5.5.2"
+  spec.version      = "5.6.0"
   spec.summary      = "AdWangMaiSDK is a SDK from WangMai providing AD service."
   spec.description  = <<-DESC
     AdWangMaiSDK is a SDK from WangMai providing AD service.
@@ -36,15 +36,15 @@ Pod::Spec.new do |spec|
   spec.subspec 'AdSDk' do |ss|
     ss.resource  = "WangMaiSDK/adwangmai_sdk.bundle"
     ss.ios.vendored_frameworks = 'WangMaiSDK/AdWangMaiSDK.framework'
-    ss.frameworks = 'AppTrackingTransparency','AVFoundation','AdSupport','CoreTelephony','CoreFoundation','CoreLocation','CoreMotion','Foundation','SystemConfiguration','UIKit','WebKit'
-    ss.libraries = "z","resolv.9","xml2","c++","c++abi","z.1.2.5","bz2.1.0","bz2","iconv"
+    ss.frameworks = 'AppTrackingTransparency','AssetsLibrary','AdSupport','Audiotoolbox','AddressBook','AVKit','AVFoundation','Accelerate','CoreServices','CoreImage','CoreLocation','CoreTelephony','CoreText','CoreMotion','CoreFoundation','CoreGraphics','CoreMedia','CoreData','DeviceCheck','Foundation','ImageIO','JavaScriptCore','MobileCoreServices','MapKit','MessageUI','MediaPlayer','Photos','QuartzCore','QuickLook','SystemConfiguration','Security','StoreKit','SafariServices','UIKit','WebKit'
+    ss.libraries = "z","resolv.9","xml2","c++","c++abi","z.1.2.5","sqlite3.0","sqlite3","bz2.1.0","bz2","iconv"
   end
   
   spec.subspec 'JDYunAdapter' do |ss|
      ss.platform     = :ios, '11.0'
      ss.vendored_libraries = 'WangMaiSDK/JDYunAdapter/*.a'
      ss.dependency 'AdWangMaiSDK/AdSDk'
-     ss.dependency 'JADYun', '~> 2.3.0'
+     ss.dependency 'JADYun', '~> 2.4.6'
   end
   
   # This description is used to generate tags and improve search results.

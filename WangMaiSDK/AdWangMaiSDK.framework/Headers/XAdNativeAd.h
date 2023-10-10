@@ -41,6 +41,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (void)loadAdData;
 
+/// 视图注册方法
+/// - Parameter clickableViews: 可点击的视图数组，此数组内的广告元素才可以响应广告对应的点击事件
+- (void)registerClickableViews:(NSArray<UIView *> *_Nonnull)clickableViews;
+
 /// 广告数据渲染完毕，即将展示时需调用trackImpression方法。
 - (void)trackImpression;
 
@@ -53,6 +57,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 播放静音开关
 /// @param flag 是否静音
 - (void)muteEnable:(BOOL)flag;
+
+/// 广告销毁
+- (void)onDestroy;
 
 /// 竞胜之后调用, 需要在广告请求成功之后,展示之前调用
 /// @param winInfo 竞胜信息 字典类型

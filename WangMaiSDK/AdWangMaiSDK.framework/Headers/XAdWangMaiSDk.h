@@ -7,11 +7,30 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "XAdLocation.h"
 NS_ASSUME_NONNULL_BEGIN
 
 @interface XAdWangMaiSDk : NSObject
 
+/// 是否允许SDK使用地理位置信息
+/// @param allowsUseLocation 默认为YES, YES可以获取，NO禁止获取。
+/// @warning  初始化SDK前调用，否则有可能不生效
+- (void)allowsUseLocationStatus:(BOOL)allowsUseLocation;
+
+/// 可传入地理位置信息，sdk使用您传入的地理位置信息。
+/// @param location 地理位置参数
+/// @warning  初始化SDK前调用，否则有可能不生效
+- (void)setUserLocation:(XAdLocation *)location;
+
+/// 是否允许SDK获取IDFA信息
+/// @param allowsUseIDFA 默认为YES, YES可以获取，NO禁止获取。
+/// @warning  初始化SDK前调用，否则有可能不生效
+- (void)allowsUseIDFAStatus:(BOOL)allowsUseIDFA;
+
+/// 可传入idfa信息,sdk使用您传入的idfa信息。
+/// @param idfa idfa设备信息,传入原始值。
+/// @warning  初始化SDK前调用，否则有可能不生效
+- (void)setDeviceIDFA:(NSString *)idfa;
 
 + (instancetype)sharedInstance;
 
@@ -23,8 +42,6 @@ NS_ASSUME_NONNULL_BEGIN
  @param universalLink 小程序跳转所需universalLink,用于向微信注册应用
  */
 - (void)initWithAppToken:(NSString *)appToken appKey:(NSString *)appKey appId:(NSString *_Nullable)appId universalLink:(NSString *_Nullable)universalLink;
-
-
 
 /// sdk版本号
 + (NSString *)sdkVersion;
