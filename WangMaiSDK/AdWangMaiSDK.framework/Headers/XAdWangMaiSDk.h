@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "XAdLocation.h"
+#import <AdWangMaiSDK/XAdLocation.h>
 NS_ASSUME_NONNULL_BEGIN
 
 @interface XAdWangMaiSDk : NSObject
@@ -31,6 +31,12 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param idfa idfa设备信息,传入原始值。
 /// @warning  初始化SDK前调用，否则有可能不生效
 - (void)setDeviceIDFA:(NSString *)idfa;
+
+/// 开启个性化推荐广告,默认YES:开启
+/// @param enablePersonalized 开启个性化推荐广告
+/// @warning  初始化SDK前调用，否则有可能不生效
+- (void)enablePersonalized:(BOOL)enablePersonalized;
+
 
 + (instancetype)sharedInstance;
 
