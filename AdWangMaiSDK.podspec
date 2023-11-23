@@ -22,7 +22,7 @@ Pod::Spec.new do |spec|
     AdWangMaiSDK is a SDK from WangMai providing AD service.
                    DESC
   spec.homepage     = "https://github.com/yangdimuyi/AdWangMaiSDK-iOS.git"
-  spec.license      = { :type => "MIT", :file => "FILE_LICENSE" }
+  spec.license      = { :type => "MIT", :file => "LICENSE" }
   spec.author             = { "WangMai" => "yangdi.yang@adwangmai.com" }
   spec.platform     = :ios,"11.0"
   spec.ios.deployment_target = "11.0"
