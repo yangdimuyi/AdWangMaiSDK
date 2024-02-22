@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)nativeExpressOnAdRequest:(NSString *)adTag;
 
 /// 请求成功
-/// @param isVideoAd 是否是视频广告
+/// @param isVideoAd 是否是视频广告  部分平台不支持获取
 /// @param adTag 广告标记
 - (void)nativeExpressOnAdReady:(BOOL)isVideoAd adTag:(NSString *)adTag;
 

@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "AdWangMaiSDK"
-  spec.version      = "5.8.1"
+  spec.version      = "5.9.0"
   spec.summary      = "AdWangMaiSDK is a SDK from WangMai providing AD service."
   spec.description  = <<-DESC
     AdWangMaiSDK is a SDK from WangMai providing AD service.
@@ -26,9 +26,9 @@ Pod::Spec.new do |spec|
   spec.author             = { "WangMai" => "yangdi.yang@adwangmai.com" }
   spec.platform     = :ios,"11.0"
   spec.ios.deployment_target = "11.0"
-  spec.xcconfig = { 'VALID_ARCHS' => 'arm64 x86_64','VALID_ARCHS[sdk=iphoneos*]' => 'arm64','VALID_ARCHS[sdk=iphonesimulator*]' => 'x86_64', 'OTHER_LDFLAGS' => ['-ObjC'],'ENABLE_BITCODE' => 'NO' }
-  spec.user_target_xcconfig = { 'OTHER_LDFLAGS' => ['-ObjC'], 'ENABLE_BITCODE' => 'NO', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
-  spec.pod_target_xcconfig = { 'OTHER_LDFLAGS' => ['-ObjC'], 'ENABLE_BITCODE' => 'NO', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
+  spec.xcconfig = { 'VALID_ARCHS' => 'arm64 x86_64', 'VALID_ARCHS[sdk=iphoneos*]' => 'arm64', 'VALID_ARCHS[sdk=iphonesimulator*]' => 'x86_64', 'OTHER_LDFLAGS' => ['-ObjC'], 'ENABLE_BITCODE' => 'NO', 'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES'}
+  spec.user_target_xcconfig = { 'OTHER_LDFLAGS' => ['-ObjC'], 'ENABLE_BITCODE' => 'NO', 'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
+  spec.pod_target_xcconfig = { 'OTHER_LDFLAGS' => ['-ObjC'], 'ENABLE_BITCODE' => 'NO', 'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
   spec.source       = { :git => "https://github.com/yangdimuyi/AdWangMaiSDK-iOS.git", :tag => "#{spec.version}" }
   spec.requires_arc = true
   spec.default_subspec = 'AdSDk'
@@ -36,15 +36,25 @@ Pod::Spec.new do |spec|
   spec.subspec 'AdSDk' do |ss|
     ss.resource  = "WangMaiSDK/adwangmai_sdk.bundle"
     ss.ios.vendored_frameworks = 'WangMaiSDK/AdWangMaiSDK.framework'
-    ss.frameworks = 'AppTrackingTransparency','AssetsLibrary','AdSupport','Audiotoolbox','AddressBook','AVKit','AVFoundation','Accelerate','CoreServices','CoreImage','CoreLocation','CoreTelephony','CoreText','CoreMotion','CoreFoundation','CoreGraphics','CoreMedia','CoreData','DeviceCheck','Foundation','ImageIO','JavaScriptCore','MobileCoreServices','MapKit','MessageUI','MediaPlayer','Photos','QuartzCore','QuickLook','SystemConfiguration','Security','StoreKit','SafariServices','UIKit','WebKit'
-    ss.libraries = "z","resolv.9","xml2","c++","c++abi","z.1.2.5","sqlite3.0","sqlite3","bz2.1.0","bz2","iconv"
+    ss.frameworks = 'AppTrackingTransparency','AssetsLibrary','AdSupport','Audiotoolbox','AddressBook','AVKit','AVFoundation','Accelerate','CFNetwork','CoreServices','CoreImage','CoreLocation','CoreTelephony','CoreText','CoreMotion','CoreFoundation','CoreGraphics','CoreMedia','CoreData','DeviceCheck','Foundation','ImageIO','JavaScriptCore','MobileCoreServices','MapKit','MessageUI','MediaPlayer','Photos','QuartzCore','QuickLook','SystemConfiguration','Security','StoreKit','SafariServices','UIKit','WebKit'
+    ss.libraries = "z","resolv.9","xml2","c++","c++abi","z.1.2.5","sqlite3.0","sqlite3","bz2.1.0","bz2","iconv","resolv"
   end
   
   spec.subspec 'JDYunAdapter' do |ss|
      ss.platform     = :ios, '11.0'
      ss.vendored_libraries = 'WangMaiSDK/JDYunAdapter/*.a'
      ss.dependency 'AdWangMaiSDK/AdSDk'
-     ss.dependency 'JADYun', '~> 2.4.6'
+     ss.dependency 'JADYun', '~> 2.5.6'
+     ss.dependency 'JADYunMotion', '~> 2.5.6'
+  end
+  
+  spec.subspec 'TanxAdapter' do |ss|
+     ss.platform     = :ios, '11.0'
+     ss.vendored_libraries = 'WangMaiSDK/TanxAdapter/*.a'
+     ss.resource  = "WangMaiSDK/TanxAdapter/TanxID.bundle"
+     ss.ios.vendored_frameworks = 'WangMaiSDK/TanxAdapter/TanxSDK.framework'
+     ss.ios.vendored_frameworks = 'WangMaiSDK/TanxAdapter/TNXASDK.framework'
+     ss.dependency 'AdWangMaiSDK/AdSDk'
   end
   
   # This description is used to generate tags and improve search results.

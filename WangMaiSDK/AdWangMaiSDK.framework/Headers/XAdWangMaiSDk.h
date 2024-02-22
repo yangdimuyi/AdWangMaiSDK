@@ -37,6 +37,11 @@ NS_ASSUME_NONNULL_BEGIN
 /// @warning  初始化SDK前调用，否则有可能不生效
 - (void)enablePersonalized:(BOOL)enablePersonalized;
 
+/// 设置本地默认配置
+/// @param fileName 文件名称
+/// @warning  初始化SDK前传入，否则有可能不生效
+- (void)setLocalConfigFileName:(NSString *)fileName;
+
 
 + (instancetype)sharedInstance;
 
