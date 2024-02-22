@@ -52,8 +52,7 @@ Pod::Spec.new do |spec|
      ss.platform     = :ios, '11.0'
      ss.vendored_libraries = 'WangMaiSDK/TanxAdapter/*.a'
      ss.resource  = "WangMaiSDK/TanxAdapter/TanxID.bundle"
-     ss.ios.vendored_frameworks = 'WangMaiSDK/TanxAdapter/TanxSDK.framework'
-     ss.ios.vendored_frameworks = 'WangMaiSDK/TanxAdapter/TNXASDK.framework'
+     ss.ios.vendored_frameworks = 'WangMaiSDK/TanxAdapter/*.framework'
      ss.dependency 'AdWangMaiSDK/AdSDk'
   end
   
