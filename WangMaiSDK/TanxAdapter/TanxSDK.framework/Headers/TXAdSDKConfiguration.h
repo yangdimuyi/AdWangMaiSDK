@@ -19,14 +19,8 @@ NS_ASSUME_NONNULL_BEGIN
 /// 当前是否禁止获取idfa(只读)
 @property (nonatomic, assign, readonly) BOOL forbiddenUseIDFA;
 
-///是否支持实时曝光
-@property (nonatomic, assign) BOOL realTimeSwitch;
-
 /// 媒体自定义用户质量,字段格式{"key":["value"]}
 @property (nonatomic, strong) NSDictionary<NSString *,NSArray *> * userTag;
-
-// 媒体用户ID 仅做透传给服务端
-@property (nonatomic, strong) NSString * mediaUid;
 
 /// 单例初始化
 + (instancetype)sharedConfiguration;
@@ -39,6 +33,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// 获取SDK idfv
 + (NSString *)idfv;
+
+/// 禁止广告填充，默认填充，针对所有广告生效
+/// @param disableFill YES - 禁止广告填充
+- (void)disallowAdPlacement:(BOOL)disableFill;
 
 /// 是否禁止SDK获取idfa
 /// @param forbiddened YES:禁止获取
@@ -56,19 +54,26 @@ NS_ASSUME_NONNULL_BEGIN
 /// @param lat 纬度
 - (void)setSDKLBSLon:(NSString *)lon lat:(NSString *)lat;
 
-/// 关闭个性化推荐控制
-/// @param closed YES:禁止获取
-- (void)closePersonalized:(BOOL)closed;
 
+/*------------------注：下面方法、属性，已废弃------------------*/
 
-@property (nonatomic, assign) CGFloat titleSize;
-/// 是否可以设置字体大小
-@property (nonatomic, assign) BOOL customTitleSizeSwitch;
+/// 已废弃，信息流广告默认支持实时曝光
+@property (nonatomic, assign) BOOL realTimeSwitch NS_UNAVAILABLE;
 
-// 外部媒体通过该接口设置标题字体大小
-- (void)setTitleSize:(CGFloat )titleSize;
+/// 已废弃，请使用TXAdFeedTemplateConfig.mainTitleSize
+@property (nonatomic, assign) CGFloat titleSize  NS_UNAVAILABLE;
 
-- (void)closeCustomTitleSize;
+/// 是否可以设置字体大小，已废弃，请使用TXAdFeedTemplateConfig.mainTitleSize
+@property (nonatomic, assign) BOOL customTitleSizeSwitch  NS_UNAVAILABLE;
+
+/// 外部媒体通过该接口设置标题字体大小，已废弃，请使用TXAdFeedTemplateConfig.mainTitleSize
+- (void)setTitleSize:(CGFloat )titleSize  NS_UNAVAILABLE;
+
+/// 已废弃，请使用TXAdFeedTemplateConfig.mainTitleSize
+- (void)closeCustomTitleSize  NS_UNAVAILABLE;
+
+// 媒体用户ID 仅做透传给服务端，已废弃，请使用TXAdRewardVideoSlotModel.mediaUid
+@property (nonatomic, strong) NSString * mediaUid NS_UNAVAILABLE;
 
 @end
 

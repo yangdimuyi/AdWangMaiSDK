@@ -32,7 +32,7 @@
 
 /**
  *  自渲染支持可点击区域（仅自渲染回调）
- *  TODO: 只有在binder调用registerFeedViewClickableViews:方法才会回调
+ *      0、只有在binder调用registerFeedViewClickableViews:方法才会回调
  *  @param model            数据model
  *  @param clickView   点击的clickView
  */

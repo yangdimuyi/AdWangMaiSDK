@@ -32,20 +32,17 @@ typedef NS_ENUM(NSUInteger, TXAdPlayConfig) {
 /// 左右padding，默认：15，如设置templateWidth，则不需要设置horizontalPadding
 @property (nonatomic, assign) CGFloat horizontalPadding;
 
-/// 图片圆角大小
+/// 图片圆角大小，暂时未使用
 @property (nonatomic, assign) CGFloat picCorner;
 
-/// 暗黑模式/正常模式
+/// 暗黑模式/正常模式，默认显示自然模式
 @property (nonatomic, assign) TXAdShowMode showModeDefine;
 
-/// 信息流卡片背景颜色
+/// 信息流卡片背景颜色，默认nil
 @property (nonatomic, strong) UIColor *cardBgColor;
 
-/// 自定义主标题颜色
-@property (nonatomic, strong) UIColor *mainTitleColor;
-
-/// 自定义主标题字号大小，默认系统 systemFontOfSize：16
-@property (nonatomic, strong) UIFont *mainTitleFont;
+/// 自定义主标题字体，默认为0，10-最小字号，32.0最大字号
+@property (nonatomic, assign) CGFloat mainTitleSize;
 
 - (void)resetConfigTemplateWidthValues;
 
@@ -53,6 +50,10 @@ typedef NS_ENUM(NSUInteger, TXAdPlayConfig) {
 @property (nonatomic, assign) TXAdPlayConfig playConfig; // 默认，自动播放
 @property (nonatomic, assign) BOOL setMute; // 默认，静音
 @property (nonatomic, assign) BOOL replay;  // 默认 NO，单次播放
+
+/// 下面属性loadingView、playView必须一起设置，单独设置不生效
+@property (nonatomic, strong) UIView *loadingView; // 播放视频加载时展示，不传使用sdk默认图片
+@property (nonatomic, strong) UIView *playView;    // 播放器暂停时展示，不传使用sdk默认图片
 
 @end
 

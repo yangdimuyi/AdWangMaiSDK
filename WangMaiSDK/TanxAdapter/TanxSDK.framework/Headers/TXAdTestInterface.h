@@ -17,7 +17,7 @@
 // 2 ---- 信息流；3 ---- 激励视频
 + (NSArray *)videoCache_getAllCacheURLWithType:(NSUInteger)type;
 + (void)videoCache_cleanAllCachesWithType:(NSUInteger)type;
-+ (void)videoCache_cacheDeleteWithType:(NSUInteger)type url:(NSURL *)url;
++ (void)videoCache_cacheDeleteWithType:(NSUInteger)type fileName:(NSString *)fileName;
 + (void)videoCache_downLoadCacheFilesWithType:(NSUInteger)type url:(NSString *)url;
 
 /* ----------- splash Caches action ----------- */
@@ -28,6 +28,13 @@
 + (void)splash_deleteMaterial:(NSString *)path;
 
 
+/**
+ *  设置广告请求环境
+ *
+ *  @param env ，1- online，0-dev
+ */
++ (void)setAdRequestEnv:(NSUInteger)env;
++ (NSUInteger)getAdRequestEnv;
 @end
 
 
