@@ -36,7 +36,7 @@ Pod::Spec.new do |spec|
   spec.subspec 'AdSDk' do |ss|
     ss.resource  = "WangMaiSDK/adwangmai_sdk.bundle"
     ss.ios.vendored_frameworks = 'WangMaiSDK/AdWangMaiSDK.framework'
-    ss.frameworks = 'AppTrackingTransparency','AssetsLibrary','AdSupport','Audiotoolbox','AddressBook','AVKit','AVFoundation','Accelerate','CFNetwork','CoreServices','CoreImage','CoreLocation','CoreTelephony','CoreText','CoreMotion','CoreFoundation','CoreGraphics','CoreMedia','CoreData','DeviceCheck','Foundation','ImageIO','JavaScriptCore','MobileCoreServices','MapKit','MessageUI','MediaPlayer','Photos','QuartzCore','QuickLook','SystemConfiguration','Security','StoreKit','SafariServices','UIKit','WebKit','CoreAudioTypes'
+    ss.frameworks = 'AppTrackingTransparency','AssetsLibrary','AdSupport','Audiotoolbox','AddressBook','AVKit','AVFoundation','Accelerate','CFNetwork','CoreServices','CoreImage','CoreLocation','CoreTelephony','CoreText','CoreMotion','CoreFoundation','CoreGraphics','CoreMedia','CoreData','DeviceCheck','Foundation','ImageIO','JavaScriptCore','MobileCoreServices','MapKit','MessageUI','MediaPlayer','Photos','QuartzCore','QuickLook','SystemConfiguration','Security','StoreKit','SafariServices','UIKit','WebKit'
     ss.libraries = "z","resolv.9","xml2","c++","c++abi","z.1.2.5","sqlite3.0","sqlite3","bz2.1.0","bz2","iconv","resolv"
   end
   
@@ -44,15 +44,15 @@ Pod::Spec.new do |spec|
      ss.platform     = :ios, '12.0'
      ss.vendored_libraries = 'WangMaiSDK/JDYunAdapter/*.a'
      ss.dependency 'AdWangMaiSDK/AdSDk'
-     ss.dependency 'JADYun', '~> 2.5.12'
-     ss.dependency 'JADYunMotion', '~> 2.5.12'
+     ss.dependency 'JADYun', '2.5.12'
+     ss.dependency 'JADYunMotion', '2.5.12'
   end
   
   spec.subspec 'GDTAdapter' do |ss|
      ss.platform     = :ios, '12.0'
      ss.vendored_libraries = 'WangMaiSDK/GDTAdapter/*.a'
      ss.dependency 'AdWangMaiSDK/AdSDk'
-     ss.dependency 'GDTMobSDK', '~> 4.14.76'
+     ss.dependency 'GDTMobSDK', '4.14.76'
   end
   
   spec.subspec 'TanxAdapter' do |ss|
