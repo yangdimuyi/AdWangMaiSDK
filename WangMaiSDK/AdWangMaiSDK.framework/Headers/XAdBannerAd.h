@@ -36,9 +36,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 广告是否刷新  [可选] 默认为YES:刷新  设置为NO则不刷新
 @property (nonatomic,assign) BOOL isRefresh;
 
-// caid以及caid版本号信息
-// 数组内部未字典对象,Key为caid和caidVer,对应的值均为字符串类型,示例:@{@"caid":@"",@"caidVer":@""} [可选]
-@property (nonatomic, strong) NSArray *caidInfo;
+/// cd以及cd版本号信息  [可选]
+/// 数组内部未字典对象,Key为cd(参数)和version(版本号),对应的值均为字符串类型,示例:@{@"cd":@"",@"version":@""}
+@property (nonatomic, strong) NSArray *cdInfo;
 
 /**
  构造方法

@@ -23,9 +23,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// 底部自定义窗口  [可选]
 @property (nonatomic, weak) UIView *bottomView;
 
-/// caid以及caid版本号信息  [可选]
-/// 数组内部未字典对象,Key为caid和caidVer,对应的值均为字符串类型,示例:@{@"caid":@"",@"caidVer":@""}
-@property (nonatomic, strong) NSArray *caidInfo;
+/// cd以及cd版本号信息  [可选]
+/// 数组内部未字典对象,Key为cd(参数)和version(版本号),对应的值均为字符串类型,示例:@{@"cd":@"",@"version":@""}
+@property (nonatomic, strong) NSArray *cdInfo;
 
 /// 构造方法
 /// - Parameter adSlotId: 广告位id
