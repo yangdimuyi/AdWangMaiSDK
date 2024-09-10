@@ -56,7 +56,7 @@ Pod::Spec.new do |spec|
   end
   
   spec.subspec 'TanxAdapter' do |ss|
-     ss.platform     = :ios, '11.0'
+     ss.platform     = :ios, '12.0'
      ss.vendored_libraries = 'WangMaiSDK/TanxAdapter/*.a'
      ss.dependency 'TanxSDK', '3.5.7'
      ss.dependency 'AdWangMaiSDK/AdSDk'
