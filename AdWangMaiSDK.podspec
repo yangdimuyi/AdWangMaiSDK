@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "AdWangMaiSDK"
-  spec.version      = "5.9.7"
+  spec.version      = "5.9.8"
   spec.summary      = "AdWangMaiSDK is a SDK from WangMai providing AD service."
   spec.description  = <<-DESC
     AdWangMaiSDK is a SDK from WangMai providing AD service.
@@ -24,8 +24,8 @@ Pod::Spec.new do |spec|
   spec.homepage     = "https://github.com/yangdimuyi/AdWangMaiSDK-iOS.git"
   spec.license      = { :type => "MIT", :file => "LICENSE" }
   spec.author             = { "WangMai" => "yangdi.yang@adwangmai.com" }
-  spec.platform     = :ios,"12.0"
-  spec.ios.deployment_target = "12.0"
+  spec.platform     = :ios,"11.0"
+  spec.ios.deployment_target = "11.0"
   spec.xcconfig = { 'VALID_ARCHS' => 'arm64 x86_64', 'VALID_ARCHS[sdk=iphoneos*]' => 'arm64', 'VALID_ARCHS[sdk=iphonesimulator*]' => 'x86_64', 'OTHER_LDFLAGS' => ['-ObjC'], 'ENABLE_BITCODE' => 'NO', 'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES'}
   spec.user_target_xcconfig = { 'OTHER_LDFLAGS' => ['-ObjC'], 'ENABLE_BITCODE' => 'NO', 'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
   spec.pod_target_xcconfig = { 'OTHER_LDFLAGS' => ['-ObjC'], 'ENABLE_BITCODE' => 'NO', 'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES', 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
@@ -41,7 +41,7 @@ Pod::Spec.new do |spec|
   end
   
   spec.subspec 'JDYunAdapter' do |ss|
-     ss.platform     = :ios, '12.0'
+     ss.platform     = :ios, '11.0'
      ss.vendored_libraries = 'WangMaiSDK/JDYunAdapter/*.a'
      ss.dependency 'AdWangMaiSDK/AdSDk'
      ss.dependency 'JADYun', '2.6.2'
@@ -49,14 +49,14 @@ Pod::Spec.new do |spec|
   end
   
   spec.subspec 'GDTAdapter' do |ss|
-     ss.platform     = :ios, '12.0'
+     ss.platform     = :ios, '11.0'
      ss.vendored_libraries = 'WangMaiSDK/GDTAdapter/*.a'
      ss.dependency 'AdWangMaiSDK/AdSDk'
      ss.dependency 'GDTMobSDK', '4.14.90'
   end
   
   spec.subspec 'TanxAdapter' do |ss|
-     ss.platform     = :ios, '12.0'
+     ss.platform     = :ios, '11.0'
      ss.vendored_libraries = 'WangMaiSDK/TanxAdapter/*.a'
      ss.dependency 'TanxSDK', '3.5.7'
      ss.dependency 'AdWangMaiSDK/AdSDk'
