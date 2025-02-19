@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "AdWangMaiSDK"
-  spec.version      = "6.1.2"
+  spec.version      = "6.1.3"
   spec.summary      = "AdWangMaiSDK is a SDK from WangMai providing AD service."
   spec.description  = <<-DESC
     AdWangMaiSDK is a SDK from WangMai providing AD service.
@@ -59,6 +59,13 @@ Pod::Spec.new do |spec|
      ss.platform     = :ios, '12.0'
      ss.vendored_libraries = 'WangMaiSDK/TanxAdapter/*.a'
      ss.dependency 'TanxSDK', '3.6.6'
+     ss.dependency 'AdWangMaiSDK/AdSDk'
+  end
+  
+  spec.subspec 'QuMengAdapter' do |ss|
+     ss.platform     = :ios, '11.0'
+     ss.vendored_libraries = 'WangMaiSDK/QuMengAdapter/*.a'
+     ss.dependency 'QuMengAdSDK', '1.3.1'
      ss.dependency 'AdWangMaiSDK/AdSDk'
   end
   
